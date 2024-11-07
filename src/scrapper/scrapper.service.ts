@@ -7,7 +7,7 @@ export class ScrapperService {
     const URL = `https://www.iproperty.com.my/sale/all-residential/?q=${location}`;
     const browser = await puppeteer.launch({
       headless: true,
-      executablePath: '/snap/bin/chromium',
+      // executablePath: '/snap/bin/chromium',
     });
     const page = await browser.newPage();
     await page.goto(URL, {
