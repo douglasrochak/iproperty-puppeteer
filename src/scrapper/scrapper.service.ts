@@ -6,7 +6,8 @@ export class ScrapperService {
   async getDataViaPuppeteer(location = '') {
     const URL = `https://www.iproperty.com.my/sale/all-residential/?q=${location}`;
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
+      executablePath: '/snap/bin/chromium',
     });
     const page = await browser.newPage();
     await page.goto(URL, {
@@ -57,11 +58,11 @@ export class ScrapperService {
           propertyList.push(data);
         });
 
-      return propertyList;
+      return ['teste', 'teste2'];
     });
 
     console.log('getDataViaPuppeteer results :', results);
     await browser.close();
-    return results;
+    return ['fake', 'result'];
   }
 }
